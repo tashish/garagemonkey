@@ -1,3 +1,6 @@
+GarageMonkey is a web application, which aims to solve the inefficacy of parking garage operations and also provide new features, which will enable better utilization and management to parking spots to provide a seamless customer experience. GarageMonkey automates end-to-end workflow of parking a vehicle in a garage starting with setting up a new garage, allocate unique user friendly identifiers to individual spots, handling walk-in customers as well as allow online registration. Customers will also be able to extend an existing reservation online if there are spots available, without going through any manual step.  
+
+
 Steps to install and use GarageMonkey
 
 1. Configure database
