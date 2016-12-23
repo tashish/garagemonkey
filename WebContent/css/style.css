@@ -1,0 +1,214 @@
+/*
+ * Copyright 2016 Ashish Tiwari (ashishtiwari@asu.edu)
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4em;
+    margin: 0px;
+    background: rgb(246, 246, 245);
+}
+
+.clr {
+    clear:both;
+    padding:0;
+    margin:0;
+    width:100%;
+    font-size:0px;
+    line-height:0px;
+}
+
+#header-container {
+    min-height: 80px;
+    margin-bottom: 10px;
+    background: black;
+}
+
+#header-inner-wrapper {
+    width: 1255px;
+    margin: 0px auto;
+}
+
+#header-title {
+    color: rgb(224, 224, 224);
+    float: left;
+    font-size: 27px;
+    font-weight: bold;
+    padding: 25px 2px 2px;
+}
+
+#main-nav {
+    float: right;
+    color: #fff;
+    padding-top: 40px;
+}
+
+#main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#main-nav li {
+    float:left;
+}
+
+#main-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#main-nav li a:hover:not(.active) {
+    color: #ffb310;
+}
+
+#main-nav li a.active {
+    color: #ffb310;
+}
+
+#content-container {
+    width: 1255px;
+    margin: 0px auto;
+    min-height: 600px;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+
+div.main {
+    width: 400px;
+    padding: 10px 55px 40px;
+    background-color: rgba(187, 255, 184, 0.65);
+    border: 15px solid white;
+    box-shadow: 0 0 10px;
+    border-radius: 2px;
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=text], input[type=password], select {
+    width: 97.7%;
+    height: 30px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    box-shadow: 0 0 5px #00F5FF;
+    border: 2px solid #00F5FF;
+    color: #4f4f4f;
+    font-size: 16px;
+}
+
+label{
+    color: #464646;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#register {
+    font-size: 20px;
+    margin-top: 15px;
+    background: linear-gradient(#22abe9 5%, #36caf0 100%);
+    border: 1px solid #0F799E;
+    padding: 7px 35px;
+    color: white;
+    text-shadow: 0px 1px 0px #13506D;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#register:hover{
+    background: linear-gradient(#36caf0 5%, #22abe9 100%);
+}
+
+#footer-holder {
+    margin: 0px auto;
+    background-color: #000;
+    margin-top: 30px;
+}
+
+#footer {
+    width: 1255px;
+    margin: 0px auto;
+}
+
+#footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding: 4px 5px;
+}
+
+#footer li {
+    float:right;
+    border-right: 1px solid white;
+}
+
+#footer li a {
+    display: block;
+    color: white;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#reservation-success {
+    width: 500px;
+    margin: 80px auto 0 auto;
+    padding: 10px 55px 40px;
+    background-color: rgba(187, 255, 184, 0.65);
+    border: 15px solid white;
+    box-shadow: 0 0 10px;
+    border-radius: 2px;
+    font-size: 13px;
+}
+
+#reservation-details {
+    font-weight: bold;
+}
+
+#print-receipt {
+    font-size: 15px;
+    background: linear-gradient(#22abe9 5%, #36caf0 100%);
+    border: 1px solid #0F799E;
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 140px;
+}

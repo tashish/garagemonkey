@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<project name="GarageMonkey" default="execute">
+    <property file="resources/build.properties" />
+    <property name="chrome" location="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"/>
+    <property name="tomcatHome" location="/Users/ramayan.tiwari/dev/tools/tomcat"/>
+    <property name="webroot" location="${tomcatHome}/webapps"/>
+    <property name="war-file-name" value="GarageMonkey.war" />
+
+    <taskdef name="start" classname="org.apache.catalina.ant.StartTask" />
+    <taskdef name="stop" classname="org.apache.catalina.ant.StopTask" />
+    <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
+    <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" />
+
+    <target name="stop" description="stop application in tomcat">
+        <echo message="${tomcat-manager-password} ${tomcat-manager-username}" />
+        <stop
+                url="${tomcat-manager-url}"
+                username="${tomcat-manager-username}"
+                password="${tomcat-manager-password}"
+                path="/${project-name}" />
+    </target>
+
+    <target name="start" description="start application in tomcat">
+        <start url="${tomcat-manager-url}"
+               username="${tomcat-manager-username}"
+               password="${tomcat-manager-password}"
+               path="/${project-name}" />
+    </target>
+
+    <target name="undeploy" description="undeploy from tomcat">
+        <undeploy
+                failonerror="no"
+                url="${tomcat-manager-url}"
+                username="${tomcat-manager-username}"
+                password="${tomcat-manager-password}"
+                path="/${project-name}"
+        />
+    </target>
+
+    <target name="deploy" description="deploy to tomcat">
+        <echo> Building war and copying to tomcat webapps </echo>
+        <copy todir="build/classes">
+            <fileset dir="resources" includes="**/*.properties" />
+        </copy>
+        <war destfile="${webroot}\${war-file-name}" webxml="WebContent/WEB-INF/web.xml">
+            <fileset dir="WebContent" />
+            <lib dir="lib" />
+            <classes dir="build/classes" />
+        </war>
+        <echo> Deploying GarageMonkey to Tomcat using the copied war </echo>
+        <deploy
+                url="${tomcat-manager-url}"
+                username="${tomcat-manager-username}"
+                password="${tomcat-manager-password}"
+                path="/${project-name}"
+                war="${webroot}/${war-file-name}"
+        />
+    </target>
+
+    <target name="clean">
+        <delete dir="dist"/>
+        <delete dir="build"/>
+    </target>
+
+    <path id="compile.classpath">
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <mkdir dir="dist"/>
+    </target>
+
+    <target name="build" depends="init">
+        <javac destdir="build/classes" debug="true" srcdir="src">
+            <classpath refid="compile.classpath"/>
+        </javac>
+    </target>
+
+
+    <target name="launchApp">
+        <exec executable="${chrome}" spawn="true">
+            <arg value="http://localhost:8080/${project-name}"/>
+        </exec>
+    </target>
+
+    <target name="execute" depends="clean, build, undeploy, deploy, start">
+        <antcall target="launchApp"/>
+    </target>
+</project>
